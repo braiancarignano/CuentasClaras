@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CuentasClaras</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body class="bodyMain">
+  <header class="contenedorHeader">
+    <div class="contenidoLogo">
+      <img class="iconoLogo" src="../img/logo.png" alt="Logo">
+      <h1 class="title-tougle">CuentasClaras</h1>
+    </div>
+    <nav class="nav flex-column">
+      <h2 class="title-main-tougle">Inicio</h2>
+      <a class="btn-main-tougle h5" href="#">Gastos / Ingresos</a>
+      <a class="btn-main-tougle h5" href="#">Historial</a>
+      <a class="btn-main-tougle h5" href="#">Calculadora</a>
+      <a class="btn-main-tougle h5" href="#">Cotizaciones</a>
+      <div class="btnCrearBilletera">
+        <h2 class="title-main-tougle">Billeteras</h2>
+        <button type="submit" class="btn botonIcono" id="btnCrearBilletera"></button></a>
+      </div>
+      <a class="btn-main-tougle h5" href="#">Ejemplo 1</a>
+      <a class="btn-main-tougle h5" href="#">Ejemplo 2</a>
+      <a class="btn-main-tougle h5" href="#">Ejemplo 3</a>
+      <button type="submit" id="cerrarSesion" class="btn btn-cerrarSesion">Cerrar Sesion</button></a>
+    </nav>
+  </header>
+  <main>
+    <h2 class="title-contenido">Gastos / Ingresos</h2>
+    <!----------------------------- Modal de ingresos ------------------------------>
+    <form id="formModalIngreso" class="modalIngresos desactive shadow-lg p-3">
+      <h2 class="tituloForm">Registrar Ingreso</h2>
+      <!-- Opciones de billetera a la cual agregar -->
+      <div class="form-group">
+        <label for="form-label status">Billetera</label>
+        <select name="projects" id="projects-options">
+        </select>
+      </div>
+      <!-- Cantidad de dinero a sumar -->
+      <div class="form-group">
+        <label for="exampleInputNumber1" class="form-label">Cantidad</label>
+        <input type="number" class="form-control" id="" aria-describedby="emailHelp">
+      </div>
+      <!-- Opciones de categoria a la cual agregar -->
+      <div class="form-group">
+        <label for="form-label status">Categoria de Ingreso</label>
+        <select name="status" id="status">
+          <option value="Pendiente">Salario</option>
+          <option value="En proceso">Intereses</option>
+          <option value="Urgente">Regalos</option>
+          <option value="Resuelto">Otros</option>
+        </select>
+      </div>
+      <!-- Fecha en la que se agrega -->
+      <div class="form-group">
+        <label for="form-label date">Fecha de Ingreso</label>
+        <input id="due" type="date" placeholder="Fecha de entrega">
+      </div>
+      <!-- BOTONES -->
+      <div class="btnConfirmacion">
+        <button type="submit" id="btnCancelarModal" class="btn btnCancelarModal">Cancelar</button></a>
+        <button type="submit" id="btnConfirmarModal" class="btn btnConfirmarModal">Confirmar</button></a>
+      </div>
+    </form>
+    <!----------------------------- Modal de Gastos ------------------------------>
+    <form id="formModalGasto" class="modalGastos desactive shadow-lg p-3">
+      <h2 class="tituloForm">Registrar Gasto</h2>
+      <!-- Opciones de billetera a la cual agregar -->
+      <div class="form-group">
+        <label for="form-label status">Billetera</label>
+        <select name="projects" id="projects-options">
+        </select>
+      </div>
+      <!-- Cantidad de dinero a restar -->
+      <div class="form-group">
+        <label for="exampleInputNumber1" class="form-label">Cantidad</label>
+        <input type="number" class="form-control" id="" aria-describedby="emailHelp">
+      </div>
+      <!-- Opciones de categoria a la cual agregar -->
+      <div class="form-group">
+        <label for="form-label status">Categoria de Gasto</label>
+        <select name="status" id="status">
+          <option value="En proceso">Supermercado</option>
+          <option value="Pendiente">Alquiler</option>
+          <option value="Resuelto">Ocio</option>
+          <option value="Resuelto">Salud</option>
+          <option value="Resuelto">Servicios</option>
+          <option value="Resuelto">Tarjetas</option>
+          <option value="Urgente">Transporte</option>
+          <option value="Resuelto">Otros</option>
+        </select>
+      </div>
+      <!-- Fecha en la que se agrega -->
+      <div class="form-group">
+        <label for="form-label date">Fecha de Gasto</label>
+        <input id="due" type="date" placeholder="Fecha de entrega">
+      </div>
+      <!-- BOTONES -->
+      <div class="btnConfirmacion">
+        <button type="submit" id="btnCancelarModal" class="btn btnCancelarModal">Cancelar</button></a>
+        <button type="submit" id="btnConfirmarModal" class="btn btnConfirmarModal">Confirmar</button></a>
+      </div>
+    </form>
+    <!-- Botones aparecer modal de gastos y ingresos -->
+    <div class="btnAparecerModal">
+      <button type="submit" id="btnMostrarGasto" class="btn btnMostrarGasto">Registrar Gasto</button></a>
+      <button type="submit" id="btnMostrarIngreso" class="btn btnMostrarIngreso">Registrar Ingreso</button></a>
+    </div>
+    <!---------- GRAFICO --------------->
+    <div class="grafico">
+      <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+    <!---------- TABLA --------------->
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Billetera</th>
+          <th scope="col">Categoria</th>
+          <th scope="col">Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ejemplo 1</td>
+          <td class="categoria">Supermercado</td>
+          <td>09/07/2022</td>
+        </tr>
+        <tr>
+          <td>Ejemplo 2</td>
+          <td class="categoria">Salario</td>
+          <td>09/07/2022</td>
+        </tr>
+        <tr>
+          <td>Ejemplo 3</td>
+          <td class="categoria">Transporte</td>
+          <td>09/07/2022</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+  <script src="../script/chart.js"></script>
+  <script src="../script/main.js"></script>
+</body>
+
+</html>

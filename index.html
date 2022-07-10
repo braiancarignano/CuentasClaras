@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio Sesion</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body class="bodyIndex">
+    <header>
+        <h1 class=" tituloIndex shadow-lg">Proximamente CuentasClaras..</h1>
+    </header>
+    <main>
+        <!-- Formulario Inicio Sesion -->
+        <form class="formularioIngreso shadow-lg p-3">
+            <h2 class="tituloForm">Iniciar Sesion</h2>
+            <div class="mb-1">
+                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <input type="email" class="form-control" id="inicioEmail" aria-describedby="emailHelp" required>
+                <div id="emailHelp" class="form-text">Ingresa tu email. (admin@gmail.com)</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="inicioContraseña" required>
+                <div id="emailHelp" class="form-text">Ingresa tu contraseña. (administrador)</div>
+            </div>
+            <!-- BOTONES -->
+            <button type="submit" id="btnRegistrateInicio" class="btn btn-secundary">¿Aun no tienes cuenta?
+                Registrate</button></a>
+            <button type="submit" id="btnIngresarInicio" class="btn btn-primary">Ingresar</button></a>
+        </form>
+        <!-- Formulario Registro-->
+        <form class="formularioRegistro shadow-lg p-3 desactive">
+            <h2 class="tituloForm">Registro</h2>
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Nombre</label>
+                <input type="text" name="nombre" class="form-control" id="registroNombre"
+                    placeholder="Ingresa tu nombre." required>
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Apellido</label>
+                <input type="text" name="apellido" class="form-control" id="registroApellido"
+                    placeholder="Ingresa tu apellido." required>
+            </div>
+            <div class="mb-1">
+                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <input type="email" name="registroEmail" class="form-control" id="registroEmail"
+                    aria-describedby="emailHelp" placeholder="Ingresa tu email." required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                <input type="password" name="registroContraseña" class="form-control" id="registroContraseña"
+                    placeholder="Ingresa una contraseña." required>
+            </div>
+            <!-- BOTONES -->
+            <button type="submit" id="btnIngresarRegistro" class="btn btn-secundary">¿Ya tienes una cuenta?
+                Ingresa</button></a>
+            <button type="submit" id="btnRegistrateRegistro" class="btn btn-primary">Registrarme</button></a>
+        </form>
+    </main>
+    <footer>
+        <p>Copy By CuentasClaras 2022</p>
+    </footer>
+    <script src="script/inicio-sesion.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

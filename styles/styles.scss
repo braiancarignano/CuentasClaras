@@ -1,0 +1,271 @@
+/* Colores a usar: https://colorhunt.co/palette/f6f4e6fddb3a52575d41444b */
+// https://www.google.com/search?q=dashboard+templates+css&sxsrf=ALiCzsa6USjtl_La-B0fw1dFK8yMwB6Uew:1657330269031&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjY5Nev1Or4AhVMqZUCHTttDQIQ_AUoAXoECAEQAw&biw=1360&bih=657&dpr=1#imgrc=WCDAUDkICl6qJM
+// https://ar.pinterest.com/pin/1829656090541104/
+// https://colorhunt.co/palette/f0ebe3e4dccf7d9d9c576f72
+$negro: #000000;
+$blanco: #ffffff;
+$gris: #d9d9d9;
+$color-primario: #7D9D9C;
+$color-secundario: #576F72;
+$color-terceario: #89b9b7;
+$gris-traslucido: rgba(180, 180, 180, 0.801);
+
+.bodyIndex {
+    background-image: url("https://images.pexels.com/videos/5466776/accounting-money-tax-taxes-5466776.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500;")
+    ;
+    .tituloIndex{
+        width: 40%;
+        margin-left: 30%;
+        border-radius: 10px;
+        background-color: $gris-traslucido;
+        padding: 10px;
+        text-align: center;
+    }
+    .formularioIngreso{
+        width: 40%;
+        margin-top: 20px;
+        margin-left: 30%;
+        border-radius: 10px;
+        background-color: $gris-traslucido;
+        position: absolute;
+        .tituloForm{
+            text-align: center;
+        }
+
+    }
+    .formularioRegistro{
+        width: 40%;
+        margin-top: 20px;
+        margin-left: 30%;
+        border-radius: 10px;
+        background-color: $gris-traslucido;
+        position: absolute;
+
+        .tituloForm{
+            text-align: center;
+        }
+    }
+}
+.bodyMain{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr repeat(2, 3fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-areas: 
+    "tougle main"
+    "tougle main"
+    "tougle main"
+    ;
+    .title-contenido{
+        background-color: $gris;
+        text-align: center;
+        color: $color-secundario;
+        padding: 10px;
+    }
+    .btnAparecerModal{
+        width: 98%;
+        margin-left: 2%;
+    }
+    .contenedorHeader{
+        grid-area: tougle;
+        width: 100%;
+        height: 100vh;
+        background-color: $color-primario;
+        .contenidoLogo{
+            padding-top: 10px;
+            .title-tougle{
+                width: 230px;
+                height: 100px;
+                color: $gris;
+                font-size: 2rem;
+                padding-top: 8.5%;
+                float: right;
+            }
+            .iconoLogo{
+                width: 100px;
+                height: 100px;
+            }
+        }
+        .btn-main-tougle{
+            color: $gris;
+            text-decoration: none;
+            margin-left: 20%;
+            width: 300px;
+            padding-top: 5px;
+        }
+        .btnCrearBilletera{
+            display: flex;
+            flex-direction: row;
+            .title-main-tougle{
+                color: $color-secundario;
+                margin-left: 6%;
+                padding-top: 30px;
+            }
+            .botonIcono{
+                background: url("../img/boton-mas.png");
+                margin-top: 35px;
+                margin-left: 5%;
+                height: 32px;
+                width: 32px;
+            }
+        }
+        .title-main-tougle{
+            color: $color-secundario;
+            margin-left: 20%;
+            padding-top: 30px;
+        }
+        .btn-cerrarSesion{
+            float: right;
+            color: $gris;
+            background-color: $color-secundario;
+            margin-top: 70%;
+            margin-left: 20%;
+            margin-right: 20%;
+            height: 7vh;
+        }
+    }
+    main{
+        grid-area: main;
+        background-color: $gris;
+        height: 100vh;
+        .grafico{
+            width: 300px;
+            height: 300px;
+            margin-left: 35%;
+            padding: 10px;
+        }
+        .btnMostrarGasto{
+            color: $color-secundario;
+            background-color: $gris;
+        }
+        .btnMostrarIngreso{
+            color: $gris;
+            background-color: $color-secundario;
+        }
+        .modalIngresos {
+            position: absolute;
+            background-color: $blanco;
+            margin-left: 10%;
+            padding: 1em 0.5em;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2em;
+            width: 25em;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            z-index: 101;
+            .btnConfirmarModal{
+                color: $gris;
+                background-color: $color-secundario;
+                height: 6vh;
+                margin: 20px;
+                flex-direction: column;
+            }
+            .btnCancelarModal{
+                color: $color-secundario;
+                background-color: $gris;
+                height: 6vh;
+                margin: 20px;
+                flex-direction: column;
+            }
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                width: 90%;
+                gap: 5px;
+                }
+                label {
+                    font-weight: 500;
+                }
+                input {
+                    border: none;
+                    border: 2px solid $gris;
+                    padding: 8px;
+                    border-radius: 8px;
+                    &:focus {
+                        outline: none;
+                    }
+                }
+                select {
+                    border: none;
+                    padding: 8px;
+                    border-radius: 8px;
+                }
+                #new-status {
+                    width: 10em;
+                }
+            }
+            .modalGastos {
+                position: absolute;
+                background-color: $blanco;
+                margin-left: 10%;
+                padding: 1em 0.5em;
+                display: flex;
+                flex-direction: column;
+                gap: 1.2em;
+                width: 25em;
+                justify-content: center;
+                align-items: center;
+                border-radius: 12px;
+                z-index: 101;
+                .btnConfirmarModal{
+                    color: $gris;
+                    background-color: $color-secundario;
+                    height: 6vh;
+                    margin: 20px;
+                    flex-direction: column;
+                }
+                .btnCancelarModal{
+                    color: $color-secundario;
+                    background-color: $gris;
+                    height: 6vh;
+                    margin: 20px;
+                    flex-direction: column;
+                }
+                .form-group {
+                    display: flex;
+                    flex-direction: column;
+                    width: 90%;
+                    gap: 5px;
+                    }
+                    label {
+                        font-weight: 500;
+                    }
+                    input {
+                        border: none;
+                        border: 2px solid $gris;
+                        padding: 8px;
+                        border-radius: 8px;
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                    select {
+                        border: none;
+                        padding: 8px;
+                        border-radius: 8px;
+                    }
+                    #new-status {
+                        width: 10em;
+                    }
+                }
+                .table{
+                    width: 96%;
+                    margin: 0 auto;
+                }
+    }
+}
+  
+
+.active{
+    opacity: 1;
+    visibility: visible;
+    transition: all .5s;
+}
+.desactive{
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s;
+}
