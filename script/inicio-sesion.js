@@ -1,7 +1,6 @@
 // Array de objetos donde se almacenan los datos de los usuarios registrados
 // Cree un usuario "admin" para poder interactuar con mas facilidad
 const usuarios = JSON.parse(localStorage.getItem("usuarios")) ?? [{ correo: "admin@gmail.com", contraseña: "administrador" }];
-console.log(usuarios)
 // Nombrando los selectores
 const inicioEmail = document.querySelector("#inicioEmail")
 const inicioContraseña = document.querySelector("#inicioContraseña")
@@ -73,7 +72,7 @@ formularioRegistro.addEventListener("submit", (e) => {
     e.preventDefault();
     crearUsuario();
     formularioIngreso.classList.remove('desactive')
-    formularioRegistro.classList.remove('active')
+    formularioRegistro.classList.add('desactive')
 })
 // Evento validacion de usuario
 formularioIngreso.addEventListener("submit", (e) => {

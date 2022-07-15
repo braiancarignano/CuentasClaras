@@ -72,6 +72,10 @@
   width: 100px;
   height: 100px;
 }
+.bodyMain .contenedorHeader .lista {
+  color: #000000;
+  list-style: none;
+}
 .bodyMain .contenedorHeader .btn-main-tougle {
   color: #d9d9d9;
   text-decoration: none;
@@ -236,9 +240,154 @@
 .bodyMain main .modalGastos #new-status {
   width: 10em;
 }
+.bodyMain main .modalNuevaBilletera {
+  position: absolute;
+  background-color: #ffffff;
+  margin-left: 10%;
+  padding: 1em 0.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+  width: 25em;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  z-index: 101;
+}
+.bodyMain main .modalNuevaBilletera .btnConfirmarModal {
+  color: #d9d9d9;
+  background-color: #576F72;
+  height: 6vh;
+  margin: 20px;
+  flex-direction: column;
+}
+.bodyMain main .modalNuevaBilletera .btnCancelarModal {
+  color: #576F72;
+  background-color: #d9d9d9;
+  height: 6vh;
+  margin: 20px;
+  flex-direction: column;
+}
+.bodyMain main .modalNuevaBilletera .form-group {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  gap: 5px;
+}
+.bodyMain main .modalNuevaBilletera label {
+  font-weight: 500;
+}
+.bodyMain main .modalNuevaBilletera input {
+  border: none;
+  border: 2px solid #d9d9d9;
+  padding: 8px;
+  border-radius: 8px;
+}
+.bodyMain main .modalNuevaBilletera input:focus {
+  outline: none;
+}
+.bodyMain main .modalNuevaBilletera select {
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+}
+.bodyMain main .modalNuevaBilletera #new-status {
+  width: 10em;
+}
 .bodyMain main .table {
   width: 96%;
   margin: 0 auto;
+}
+
+.bodyCotizaciones {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr repeat(2, 3fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-areas: "tougle main" "tougle main" "tougle main";
+}
+.bodyCotizaciones .contenedorHeader {
+  grid-area: tougle;
+  width: 100%;
+  height: 100vh;
+  background-color: #7D9D9C;
+}
+.bodyCotizaciones .contenedorHeader .contenidoLogo {
+  padding-top: 10px;
+}
+.bodyCotizaciones .contenedorHeader .contenidoLogo .title-tougle {
+  width: 230px;
+  height: 100px;
+  color: #d9d9d9;
+  font-size: 2rem;
+  padding-top: 8.5%;
+  float: right;
+}
+.bodyCotizaciones .contenedorHeader .contenidoLogo .iconoLogo {
+  width: 100px;
+  height: 100px;
+}
+.bodyCotizaciones .contenedorHeader .lista {
+  color: #000000;
+  list-style: none;
+}
+.bodyCotizaciones .contenedorHeader .btn-main-tougle {
+  color: #d9d9d9;
+  text-decoration: none;
+  margin-left: 20%;
+  width: 300px;
+  padding-top: 5px;
+}
+.bodyCotizaciones .contenedorHeader .title-main-tougle {
+  color: #576F72;
+  margin-left: 20%;
+  padding-top: 30px;
+}
+.bodyCotizaciones .contenedorHeader .btn-cerrarSesion {
+  float: right;
+  color: #d9d9d9;
+  background-color: #576F72;
+  margin-top: 70%;
+  margin-left: 20%;
+  margin-right: 20%;
+  height: 7vh;
+}
+.bodyCotizaciones .contenido {
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+  background-color: #d9d9d9;
+}
+.bodyCotizaciones .contenido .iframeCotizaciones {
+  height: 458px;
+  width: 300px;
+  border: solid 1px #576F72;
+  margin: 10px;
+}
+.bodyCotizaciones .contenido .cotizaciones .cotizacion {
+  width: 200px;
+  height: 160px;
+  background-color: #e4e8d1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 1px #576F72;
+  margin: 50px 20px;
+}
+.bodyCotizaciones .contenido .cotizaciones .cotizacion .titleNombre {
+  background-color: #85bb65;
+  color: #ffffff;
+  width: 100%;
+  text-align: center;
+  font-size: 0.95em;
+  padding: 10px;
+}
+.bodyCotizaciones .contenido .cotizaciones .cotizacion .precioCotizacion {
+  color: #5d5d5d;
+  width: 100px;
+  height: 50px;
+  text-align: center;
 }
 
 .active {

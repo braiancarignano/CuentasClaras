@@ -19,94 +19,116 @@
     </div>
     <nav class="nav flex-column">
       <h2 class="title-main-tougle">Inicio</h2>
-      <a class="btn-main-tougle h5" href="#">Gastos / Ingresos</a>
-      <a class="btn-main-tougle h5" href="#">Historial</a>
-      <a class="btn-main-tougle h5" href="#">Calculadora</a>
-      <a class="btn-main-tougle h5" href="#">Cotizaciones</a>
+      <a class="btn-main-tougle h5" href="./main.html">Gastos / Ingresos</a>
+      <!-- <a class="btn-main-tougle h5" href="#">Historial</a>
+      <a class="btn-main-tougle h5" href="#">Calculadora</a> -->
+      <a class="btn-main-tougle h5" href="./cotizaciones.html">Cotizaciones</a>
       <div class="btnCrearBilletera">
         <h2 class="title-main-tougle">Billeteras</h2>
         <button type="submit" class="btn botonIcono" id="btnCrearBilletera"></button></a>
       </div>
-      <a class="btn-main-tougle h5" href="#">Ejemplo 1</a>
-      <a class="btn-main-tougle h5" href="#">Ejemplo 2</a>
-      <a class="btn-main-tougle h5" href="#">Ejemplo 3</a>
+      <div id="containerBilleteras" class="nav flex-column">
+        <ul>
+          <li class="btn-main-tougle h5 lista" href="#">Efectivo</li>
+        </ul>
+      </div>
       <button type="submit" id="cerrarSesion" class="btn btn-cerrarSesion">Cerrar Sesion</button></a>
     </nav>
   </header>
   <main>
     <h2 class="title-contenido">Gastos / Ingresos</h2>
-    <!----------------------------- Modal de ingresos ------------------------------>
+    <div id="mostrarModalAgregarBilletera"></div>
+    <!----------------------------- Modal de CREAR BILLETERA ------------------------------>
+    <form id="formModalIngreso" class="modalNuevaBilletera desactive shadow-lg p-3">
+      <h2 class="tituloForm">Registrar Billetera</h2>
+      <!-- Nombre de la billetera -->
+      <div class="form-group">
+        <label for="exampleInputName1" class="form-label">Nombre Billetera</label>
+        <input type="name" class="form-control" id="nombreBilletera" aria-describedby="emailHelp">
+      </div>
+      <!-- Cantidad de dinero inicial -->
+      <div class="form-group">
+        <label for="exampleInputNumber1" class="form-label">Cantidad Inicial</label>
+        <input type="number" class="form-control" id="cantidadBilletera" aria-describedby="emailHelp">
+      </div>
+      <!-- BOTONES -->
+      <div class="btnConfirmacion">
+        <button type="button" id="btnCancelarModalBilletera" class="btn btnCancelarModal">Cancelar</button></a>
+        <button type="button" id="btnConfirmarModalBilletera" class="btn btnConfirmarModal">Confirmar</button></a>
+      </div>
+    </form>
+    <!----------------------------- Modal de INGRESOS ------------------------------>
     <form id="formModalIngreso" class="modalIngresos desactive shadow-lg p-3">
       <h2 class="tituloForm">Registrar Ingreso</h2>
       <!-- Opciones de billetera a la cual agregar -->
       <div class="form-group">
         <label for="form-label status">Billetera</label>
-        <select name="projects" id="projects-options">
+        <select name="billeteras-options" id="billeterasIngreso">
         </select>
       </div>
       <!-- Cantidad de dinero a sumar -->
       <div class="form-group">
         <label for="exampleInputNumber1" class="form-label">Cantidad</label>
-        <input type="number" class="form-control" id="" aria-describedby="emailHelp">
+        <input type="number" class="form-control" id="cantidadIngreso" aria-describedby="emailHelp">
       </div>
       <!-- Opciones de categoria a la cual agregar -->
       <div class="form-group">
         <label for="form-label status">Categoria de Ingreso</label>
-        <select name="status" id="status">
-          <option value="Pendiente">Salario</option>
-          <option value="En proceso">Intereses</option>
-          <option value="Urgente">Regalos</option>
-          <option value="Resuelto">Otros</option>
+        <select name="status" id="categoriaIngresos">
+          <option value="Salario">Salario</option>
+          <option value="Intereses">Intereses</option>
+          <option value="Regalos">Regalos</option>
+          <option value="Otros">Otros</option>
         </select>
       </div>
       <!-- Fecha en la que se agrega -->
       <div class="form-group">
         <label for="form-label date">Fecha de Ingreso</label>
-        <input id="due" type="date" placeholder="Fecha de entrega">
+        <input id="fechaIngresos" type="date" placeholder="Fecha de entrega">
       </div>
       <!-- BOTONES -->
       <div class="btnConfirmacion">
-        <button type="submit" id="btnCancelarModal" class="btn btnCancelarModal">Cancelar</button></a>
-        <button type="submit" id="btnConfirmarModal" class="btn btnConfirmarModal">Confirmar</button></a>
+        <button type="button" id="btnCancelarModalIngreso" class="btn btnCancelarModal">Cancelar</button></a>
+        <button type="button" id="btnConfirmarModalIngreso" class="btn btnConfirmarModal">Confirmar</button></a>
       </div>
     </form>
-    <!----------------------------- Modal de Gastos ------------------------------>
+    <!----------------------------- Modal de GASTOS ------------------------------>
     <form id="formModalGasto" class="modalGastos desactive shadow-lg p-3">
       <h2 class="tituloForm">Registrar Gasto</h2>
       <!-- Opciones de billetera a la cual agregar -->
       <div class="form-group">
         <label for="form-label status">Billetera</label>
-        <select name="projects" id="projects-options">
+        <select name="projects" id="billeterasGastos">
         </select>
       </div>
       <!-- Cantidad de dinero a restar -->
       <div class="form-group">
         <label for="exampleInputNumber1" class="form-label">Cantidad</label>
-        <input type="number" class="form-control" id="" aria-describedby="emailHelp">
+        <input type="number" class="form-control" id="cantidadGastos" aria-describedby="emailHelp">
       </div>
       <!-- Opciones de categoria a la cual agregar -->
       <div class="form-group">
         <label for="form-label status">Categoria de Gasto</label>
-        <select name="status" id="status">
-          <option value="En proceso">Supermercado</option>
-          <option value="Pendiente">Alquiler</option>
-          <option value="Resuelto">Ocio</option>
-          <option value="Resuelto">Salud</option>
-          <option value="Resuelto">Servicios</option>
-          <option value="Resuelto">Tarjetas</option>
-          <option value="Urgente">Transporte</option>
-          <option value="Resuelto">Otros</option>
+        <select name="status" id="categoriaGastos">
+          <option value="Supermercado">Supermercado</option>
+          <option value="Alquiler">Alquiler</option>
+          <option value="Ocio">Ocio</option>
+          <option value="Salud">Salud</option>
+          <option value="Servicios">Servicios</option>
+          <option value="Tarjetas">Tarjetas</option>
+          <option value="Transporte">Transporte</option>
+          <option value="Otros">Otros</option>
         </select>
       </div>
       <!-- Fecha en la que se agrega -->
       <div class="form-group">
         <label for="form-label date">Fecha de Gasto</label>
-        <input id="due" type="date" placeholder="Fecha de entrega">
+        <input id="fechaGastos" type="date" placeholder="Fecha de entrega">
       </div>
       <!-- BOTONES -->
       <div class="btnConfirmacion">
-        <button type="submit" id="btnCancelarModal" class="btn btnCancelarModal">Cancelar</button></a>
-        <button type="submit" id="btnConfirmarModal" class="btn btnConfirmarModal">Confirmar</button></a>
+        <button type="button" id="btnCancelarModalGasto" class="btn btnCancelarModal">Cancelar</button></a>
+        <button type="button" id="btnConfirmarModalGasto" class="btn btnConfirmarModal">Confirmar</button></a>
       </div>
     </form>
     <!-- Botones aparecer modal de gastos y ingresos -->
@@ -125,23 +147,27 @@
           <th scope="col">Billetera</th>
           <th scope="col">Categoria</th>
           <th scope="col">Fecha</th>
+          <th scope="col">Cantidad</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Ejemplo 1</td>
+          <td>Efectivo</td>
           <td class="categoria">Supermercado</td>
           <td>09/07/2022</td>
+          <td>$5400</td>
         </tr>
         <tr>
-          <td>Ejemplo 2</td>
+          <td>Ahorros</td>
           <td class="categoria">Salario</td>
           <td>09/07/2022</td>
+          <td>$130000</td>
         </tr>
         <tr>
-          <td>Ejemplo 3</td>
+          <td>Banco</td>
           <td class="categoria">Transporte</td>
           <td>09/07/2022</td>
+          <td>$1200</td>
         </tr>
       </tbody>
     </table>

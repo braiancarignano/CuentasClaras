@@ -87,6 +87,10 @@ $gris-traslucido: rgba(180, 180, 180, 0.801);
                 height: 100px;
             }
         }
+        .lista{
+            color: $negro;
+            list-style: none;
+        }
         .btn-main-tougle{
             color: $gris;
             text-decoration: none;
@@ -251,11 +255,162 @@ $gris-traslucido: rgba(180, 180, 180, 0.801);
                         width: 10em;
                     }
                 }
+                .modalNuevaBilletera {
+                    position: absolute;
+                    background-color: $blanco;
+                    margin-left: 10%;
+                    padding: 1em 0.5em;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1.2em;
+                    width: 25em;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 12px;
+                    z-index: 101;
+                    .btnConfirmarModal{
+                        color: $gris;
+                        background-color: $color-secundario;
+                        height: 6vh;
+                        margin: 20px;
+                        flex-direction: column;
+                    }
+                    .btnCancelarModal{
+                        color: $color-secundario;
+                        background-color: $gris;
+                        height: 6vh;
+                        margin: 20px;
+                        flex-direction: column;
+                    }
+                    .form-group {
+                        display: flex;
+                        flex-direction: column;
+                        width: 90%;
+                        gap: 5px;
+                        }
+                        label {
+                            font-weight: 500;
+                        }
+                        input {
+                            border: none;
+                            border: 2px solid $gris;
+                            padding: 8px;
+                            border-radius: 8px;
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+                        select {
+                            border: none;
+                            padding: 8px;
+                            border-radius: 8px;
+                        }
+                        #new-status {
+                            width: 10em;
+                        }
+                    }
                 .table{
                     width: 96%;
                     margin: 0 auto;
                 }
     }
+}
+
+.bodyCotizaciones{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr repeat(2, 3fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-areas: 
+    "tougle main"
+    "tougle main"
+    "tougle main"
+    ;
+    .contenedorHeader{
+        grid-area: tougle;
+        width: 100%;
+        height: 100vh;
+        background-color: $color-primario;
+        .contenidoLogo{
+            padding-top: 10px;
+            .title-tougle{
+                width: 230px;
+                height: 100px;
+                color: $gris;
+                font-size: 2rem;
+                padding-top: 8.5%;
+                float: right;
+            }
+            .iconoLogo{
+                width: 100px;
+                height: 100px;
+            }
+        }
+        .lista{
+            color: $negro;
+            list-style: none;
+        }
+        .btn-main-tougle{
+            color: $gris;
+            text-decoration: none;
+            margin-left: 20%;
+            width: 300px;
+            padding-top: 5px;
+        }
+        .title-main-tougle{
+            color: $color-secundario;
+            margin-left: 20%;
+            padding-top: 30px;
+        }
+        .btn-cerrarSesion{
+            float: right;
+            color: $gris;
+            background-color: $color-secundario;
+            margin-top: 70%;
+            margin-left: 20%;
+            margin-right: 20%;
+            height: 7vh;
+        }
+    }
+    .contenido{
+        grid-area: main;
+        display: flex;
+        justify-content: center;
+        background-color: $gris;
+        .iframeCotizaciones{
+            height: 458px;
+            width: 300px;
+            border: solid 1px $color-secundario;
+            margin: 10px;
+        }
+        .cotizaciones{
+        .cotizacion{
+            width: 200px;
+            height: 160px;
+            background-color: #e4e8d1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: solid 1px $color-secundario;
+            margin: 50px 20px;
+            .titleNombre{
+                background-color: #85bb65;
+                color: $blanco;
+                width: 100%;
+                text-align: center;
+                font-size: .95em;
+                padding: 10px;
+            }
+            .precioCotizacion{
+                color: #5d5d5d;
+                width: 100px;
+                height: 50px;
+                text-align: center;
+            }
+        }
+    }
+}
 }
   
 

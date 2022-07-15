@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CuentasClaras</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body class="bodyCotizaciones">
+    <header class="contenedorHeader">
+      <div class="contenidoLogo">
+        <img class="iconoLogo" src="../img/logo.png" alt="Logo">
+        <h1 class="title-tougle">CuentasClaras</h1>
+      </div>
+      <nav class="nav flex-column">
+        <h2 class="title-main-tougle">Inicio</h2>
+        <a class="btn-main-tougle h5" href="../index.html">Gastos / Ingresos</a>
+        <!-- <a class="btn-main-tougle h5" href="#">Historial</a> -->
+        <!-- <a class="btn-main-tougle h5" href="#">Calculadora</a> -->
+        <a class="btn-main-tougle h5" href="./cotizaciones.html">Cotizaciones</a>
+        <button type="submit" id="cerrarSesion" class="btn btn-cerrarSesion">Cerrar Sesion</button></a>
+      </nav>
+  </header>
+  <main class="contenido">
+    <div class="cotizaciones" id="cotizacionesDolar"></div>
+    <iframe class="iframeCotizaciones" src="https://www.dolarsi.com/func/moduloArriba-n.html" frameborder="0" scrolling="no" allowfullscreen=""></iframe>
+    <div class="cotizaciones" id="cotizacionesEuro"></div>
+  </main>
+  <script src="../script/cotizaciones-api.js"></script>
+</body>
+
+</html>
