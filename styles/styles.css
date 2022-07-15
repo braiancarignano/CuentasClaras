@@ -108,7 +108,7 @@
   float: right;
   color: #d9d9d9;
   background-color: #576F72;
-  margin-top: 70%;
+  margin-top: 32vh;
   margin-left: 20%;
   margin-right: 20%;
   height: 7vh;
@@ -348,7 +348,7 @@
   float: right;
   color: #d9d9d9;
   background-color: #576F72;
-  margin-top: 70%;
+  margin-top: 52vh;
   margin-left: 20%;
   margin-right: 20%;
   height: 7vh;
@@ -362,18 +362,18 @@
 .bodyCotizaciones .contenido .iframeCotizaciones {
   height: 458px;
   width: 300px;
-  border: solid 1px #576F72;
   margin: 10px;
+  border-radius: 10px;
 }
 .bodyCotizaciones .contenido .cotizaciones .cotizacion {
   width: 200px;
   height: 160px;
-  background-color: #e4e8d1;
+  background-color: #E4E8D1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: solid 1px #576F72;
   margin: 50px 20px;
+  border-radius: 10px;
 }
 .bodyCotizaciones .contenido .cotizaciones .cotizacion .titleNombre {
   background-color: #85bb65;
@@ -382,6 +382,7 @@
   text-align: center;
   font-size: 0.95em;
   padding: 10px;
+  border-radius: 5px 5px 0 0;
 }
 .bodyCotizaciones .contenido .cotizaciones .cotizacion .precioCotizacion {
   color: #5d5d5d;
