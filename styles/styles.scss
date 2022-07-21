@@ -87,16 +87,21 @@ $gris-traslucido: rgba(180, 180, 180, 0.801);
                 height: 100px;
             }
         }
-        .lista{
-            color: $negro;
-            list-style: none;
-        }
         .btn-main-tougle{
             color: $gris;
             text-decoration: none;
-            margin-left: 20%;
+            margin-left: 30%;
             width: 300px;
-            padding-top: 5px;
+        }
+        tr{
+            margin-left: 10%;
+            padding: 3px;
+        }
+        .billeteraNueva{
+            width: 100px;
+        }
+        .saldo{
+            padding-left: 30px;
         }
         .btnCrearBilletera{
             display: flex;
@@ -123,10 +128,10 @@ $gris-traslucido: rgba(180, 180, 180, 0.801);
             float: right;
             color: $gris;
             background-color: $color-secundario;
-            margin-top: 32vh;
-            margin-left: 20%;
-            margin-right: 20%;
-            height: 7vh;
+            margin-top: 20px;
+            margin-left: 50%;
+            margin-right: 50%;
+            height: 6vh;
         }
     }
     main{
@@ -140,12 +145,14 @@ $gris-traslucido: rgba(180, 180, 180, 0.801);
             padding: 10px;
         }
         .btnMostrarGasto{
-            color: $color-secundario;
-            background-color: $gris;
+            color: $gris;
+            background-color: $color-secundario;
+            margin-left: 30px;
         }
         .btnMostrarIngreso{
             color: $gris;
             background-color: $color-secundario;
+            margin-left: 30px;
         }
         .modalIngresos {
             position: absolute;
@@ -347,9 +354,11 @@ $gris-traslucido: rgba(180, 180, 180, 0.801);
                 height: 100px;
             }
         }
-        .lista{
-            color: $negro;
-            list-style: none;
+        .containerBilleteras{
+            tr{
+                margin: 0px;
+                width: 0px;
+            }
         }
         .btn-main-tougle{
             color: $gris;
@@ -367,10 +376,10 @@ $gris-traslucido: rgba(180, 180, 180, 0.801);
             float: right;
             color: $gris;
             background-color: $color-secundario;
-            margin-top: 52vh;
-            margin-left: 20%;
-            margin-right: 20%;
-            height: 7vh;
+            margin-top: 20px;
+            margin-left: 50%;
+            margin-right: 50%;
+            height: 6vh;
         }
     }
     .contenido{

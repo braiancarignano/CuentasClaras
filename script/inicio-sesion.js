@@ -16,7 +16,7 @@ const btnRegistrateRegistro = document.querySelector("#btnRegistrateRegistro");
 const sesion = "Iniciado"
 
 // Esta funcion hace que mientras exista "sesion" en el storage no se pueda iniciar sesion en otra cuenta. Hasta que se cierre sesion.
-localStorage.getItem("sesion") && window.location.replace("../paginas/main.html");
+localStorage.getItem("sesion") && window.location.replace("../paginas/gastos.html");
 
 // Constructor de usuarios
 class NuevoUsuario {
@@ -48,7 +48,7 @@ const validarUsuario = () => {
         const { correo, contraseña } = usuario
 
         if (correo === inicioEmail.value && contraseña === inicioContraseña.value) {
-            window.location.href = "../paginas/main.html";
+            window.location.href = "../paginas/gastos.html";
             localStorage.setItem("sesion", sesion)
         }
         else {

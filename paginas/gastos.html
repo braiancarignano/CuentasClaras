@@ -19,24 +19,21 @@
     </div>
     <nav class="nav flex-column">
       <h2 class="title-main-tougle">Inicio</h2>
-      <a class="btn-main-tougle h5" href="./main.html">Gastos / Ingresos</a>
-      <!-- <a class="btn-main-tougle h5" href="#">Historial</a>
-      <a class="btn-main-tougle h5" href="#">Calculadora</a> -->
+      <a class="btn-main-tougle h5" href="./gastos.html">Gastos</a>
+      <a class="btn-main-tougle h5" href="./ingresos.html">Ingresos</a>
+      <a class="btn-main-tougle h5" href="#">Calculadora</a>
       <a class="btn-main-tougle h5" href="./cotizaciones.html">Cotizaciones</a>
+      <button type="submit" id="cerrarSesion" class="btn btn-cerrarSesion">Cerrar Sesion</button></a>
       <div class="btnCrearBilletera">
         <h2 class="title-main-tougle">Billeteras</h2>
         <button type="submit" class="btn botonIcono" id="btnCrearBilletera"></button></a>
       </div>
       <div id="containerBilleteras" class="nav flex-column">
-        <ul>
-          <li class="btn-main-tougle h5 lista" href="#">Efectivo</li>
-        </ul>
       </div>
-      <button type="submit" id="cerrarSesion" class="btn btn-cerrarSesion">Cerrar Sesion</button></a>
     </nav>
   </header>
   <main>
-    <h2 class="title-contenido">Gastos / Ingresos</h2>
+    <h2 class="title-contenido">Gastos</h2>
     <div id="mostrarModalAgregarBilletera"></div>
     <!----------------------------- Modal de CREAR BILLETERA ------------------------------>
     <form id="formModalIngreso" class="modalNuevaBilletera desactive shadow-lg p-3">
@@ -55,41 +52,6 @@
       <div class="btnConfirmacion">
         <button type="button" id="btnCancelarModalBilletera" class="btn btnCancelarModal">Cancelar</button></a>
         <button type="button" id="btnConfirmarModalBilletera" class="btn btnConfirmarModal">Confirmar</button></a>
-      </div>
-    </form>
-    <!----------------------------- Modal de INGRESOS ------------------------------>
-    <form id="formModalIngreso" class="modalIngresos desactive shadow-lg p-3">
-      <h2 class="tituloForm">Registrar Ingreso</h2>
-      <!-- Opciones de billetera a la cual agregar -->
-      <div class="form-group">
-        <label for="form-label status">Billetera</label>
-        <select name="billeteras-options" id="billeterasIngreso">
-        </select>
-      </div>
-      <!-- Cantidad de dinero a sumar -->
-      <div class="form-group">
-        <label for="exampleInputNumber1" class="form-label">Cantidad</label>
-        <input type="number" class="form-control" id="cantidadIngreso" aria-describedby="emailHelp">
-      </div>
-      <!-- Opciones de categoria a la cual agregar -->
-      <div class="form-group">
-        <label for="form-label status">Categoria de Ingreso</label>
-        <select name="status" id="categoriaIngresos">
-          <option value="Salario">Salario</option>
-          <option value="Intereses">Intereses</option>
-          <option value="Regalos">Regalos</option>
-          <option value="Otros">Otros</option>
-        </select>
-      </div>
-      <!-- Fecha en la que se agrega -->
-      <div class="form-group">
-        <label for="form-label date">Fecha de Ingreso</label>
-        <input id="fechaIngresos" type="date" placeholder="Fecha de entrega">
-      </div>
-      <!-- BOTONES -->
-      <div class="btnConfirmacion">
-        <button type="button" id="btnCancelarModalIngreso" class="btn btnCancelarModal">Cancelar</button></a>
-        <button type="button" id="btnConfirmarModalIngreso" class="btn btnConfirmarModal">Confirmar</button></a>
       </div>
     </form>
     <!----------------------------- Modal de GASTOS ------------------------------>
@@ -131,11 +93,8 @@
         <button type="button" id="btnConfirmarModalGasto" class="btn btnConfirmarModal">Confirmar</button></a>
       </div>
     </form>
-    <!-- Botones aparecer modal de gastos y ingresos -->
-    <div class="btnAparecerModal">
-      <button type="submit" id="btnMostrarGasto" class="btn btnMostrarGasto">Registrar Gasto</button></a>
-      <button type="submit" id="btnMostrarIngreso" class="btn btnMostrarIngreso">Registrar Ingreso</button></a>
-    </div>
+    <!-- Botones aparecer modal de gastos-->
+    <button type="submit" id="btnMostrarGasto" class="btn btnMostrarGasto">Registrar Gasto</button></a>
     <!---------- GRAFICO --------------->
     <div class="grafico">
       <canvas id="myChart" width="400" height="400"></canvas>
@@ -150,31 +109,14 @@
           <th scope="col">Cantidad</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>Efectivo</td>
-          <td class="categoria">Supermercado</td>
-          <td>09/07/2022</td>
-          <td>$5400</td>
-        </tr>
-        <tr>
-          <td>Ahorros</td>
-          <td class="categoria">Salario</td>
-          <td>09/07/2022</td>
-          <td>$130000</td>
-        </tr>
-        <tr>
-          <td>Banco</td>
-          <td class="categoria">Transporte</td>
-          <td>09/07/2022</td>
-          <td>$1200</td>
-        </tr>
+      <tbody id="tablaGastos">
       </tbody>
     </table>
   </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
-  <script src="../script/chart.js"></script>
   <script src="../script/main.js"></script>
+  <script src="../script/chart.js"></script>
+  <script src="../script/gastos.js"></script>
 </body>
 
 </html>

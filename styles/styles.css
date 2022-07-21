@@ -72,16 +72,21 @@
   width: 100px;
   height: 100px;
 }
-.bodyMain .contenedorHeader .lista {
-  color: #000000;
-  list-style: none;
-}
 .bodyMain .contenedorHeader .btn-main-tougle {
   color: #d9d9d9;
   text-decoration: none;
-  margin-left: 20%;
+  margin-left: 30%;
   width: 300px;
-  padding-top: 5px;
+}
+.bodyMain .contenedorHeader tr {
+  margin-left: 10%;
+  padding: 3px;
+}
+.bodyMain .contenedorHeader .billeteraNueva {
+  width: 100px;
+}
+.bodyMain .contenedorHeader .saldo {
+  padding-left: 30px;
 }
 .bodyMain .contenedorHeader .btnCrearBilletera {
   display: flex;
@@ -108,10 +113,10 @@
   float: right;
   color: #d9d9d9;
   background-color: #576F72;
-  margin-top: 32vh;
-  margin-left: 20%;
-  margin-right: 20%;
-  height: 7vh;
+  margin-top: 20px;
+  margin-left: 50%;
+  margin-right: 50%;
+  height: 6vh;
 }
 .bodyMain main {
   grid-area: main;
@@ -125,12 +130,14 @@
   padding: 10px;
 }
 .bodyMain main .btnMostrarGasto {
-  color: #576F72;
-  background-color: #d9d9d9;
+  color: #d9d9d9;
+  background-color: #576F72;
+  margin-left: 30px;
 }
 .bodyMain main .btnMostrarIngreso {
   color: #d9d9d9;
   background-color: #576F72;
+  margin-left: 30px;
 }
 .bodyMain main .modalIngresos {
   position: absolute;
@@ -328,9 +335,9 @@
   width: 100px;
   height: 100px;
 }
-.bodyCotizaciones .contenedorHeader .lista {
-  color: #000000;
-  list-style: none;
+.bodyCotizaciones .contenedorHeader .containerBilleteras tr {
+  margin: 0px;
+  width: 0px;
 }
 .bodyCotizaciones .contenedorHeader .btn-main-tougle {
   color: #d9d9d9;
@@ -348,10 +355,10 @@
   float: right;
   color: #d9d9d9;
   background-color: #576F72;
-  margin-top: 52vh;
-  margin-left: 20%;
-  margin-right: 20%;
-  height: 7vh;
+  margin-top: 20px;
+  margin-left: 50%;
+  margin-right: 50%;
+  height: 6vh;
 }
 .bodyCotizaciones .contenido {
   grid-area: main;
