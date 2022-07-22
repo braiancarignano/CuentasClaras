@@ -1,5 +1,5 @@
 const gastos = datoStorage = JSON.parse(localStorage.getItem("gastos")) ?? [];
-const resultadoGasto = datoStorage = JSON.parse(localStorage.getItem("gastos")) ?? [];
+const resultadoGasto = datoStorage = JSON.parse(localStorage.getItem("resultadoGasto")) ?? [];
 const tablaGastos = document.querySelector("#tablaGastos");
 const billeterasGastos = document.querySelector("#billeterasGastos");
 const cantidadGastos = document.querySelector("#cantidadGastos");
@@ -10,15 +10,26 @@ const btnConfirmarModalGasto = document.querySelector("#btnConfirmarModalGasto")
 const modalGastos = document.querySelector(".modalGastos");
 const btnMostrarGasto = document.querySelector("#btnMostrarGasto");
 let elem;
+let resultado
+
+// restando el valor del gasto a la billetera para despues mostrar el nuevo saldo de la billetera a la vez que se crea el gasto
+// ------------------  NO FUNCIONA BIEN ----------------------------
 const crearRegistroGasto = () => {
     let newGastos = new NuevoRegistro(billeterasGastos.value, cantidadGastos.value, categoriaGastos.value, fechaGastos.value);
-    billeteras.forEach(object =>{
-        let resta = object.cantidad - cantidadGastos.value;
-        resultadoGasto.push(resta)
-        localStorage.setItem("resultadoGasto", JSON.stringify(resultadoGasto));
-    });
     gastos.push(newGastos)
     localStorage.setItem("gastos", JSON.stringify(gastos));
+    billeteras.forEach(billetera =>{       
+        resultado = billetera.cantidad - cantidadGastos.value;
+        resto = resultado
+        if (resultado < billetera.cantidad){
+            let resultado2 = resultado - cantidadGastos.value;
+            console.log(resultado2)
+            console.log("pasooo")
+        }
+        console.log(resultado)
+        // resultadoGasto.push(resultado2)
+        localStorage.setItem("resultadoGasto", JSON.stringify(resultadoGasto));
+    });
     console.log("paso Gastos")
 }
 

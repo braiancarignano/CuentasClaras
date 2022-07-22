@@ -5,7 +5,7 @@ cerrarSesion.addEventListener("click", () => {
     window.location.replace("../index.html")
     console.log(cerrarSesion)
 })
-const resultadoGastos = JSON.parse(localStorage.getItem('resultadoGasto'))
+const resultadoGastos = JSON.parse(localStorage.getItem('resultadoGasto')) ?? [];
 const billeteras = datoStorage = JSON.parse(localStorage.getItem("billeteras")) ?? [];
 const btnCancelarModalBilletera = document.querySelector("#btnCancelarModalBilletera");
 const btnConfirmarModalBilletera = document.querySelector("#btnConfirmarModalBilletera");
@@ -15,9 +15,7 @@ const mostrarModalAgregarBilletera = document.querySelector("#mostrarModalAgrega
 const nombreBilletera = document.querySelector("#nombreBilletera");
 const cantidadBilletera = document.querySelector("#cantidadBilletera");
 const containerBilleteras = document.querySelector("#containerBilleteras");
-resultadoGastos.forEach(function(elemento){
-    console.log(elemento)
-})
+
 class NuevoBilletera {
     constructor(nombre, cantidad) {
         this.nombre = nombre,
@@ -32,21 +30,35 @@ class NuevoRegistro {
             this.fecha = fecha
     }
 }
+
+const printSaldo = () => {
+    elem = document.createElement("tr");
+    for (const resultadoGasto of resultadoGastos) {
+        elem.innerHTML = `<th class="btn-main-tougle h5 billeteraNueva saldo">$${resultadoGasto}</th>`
+        containerBilleteras.append(elem)
+    }}
+    const verificarStorageSaldo = () => {
+        if (!!datoStorage && datoStorage.length > 0) {
+            for (const resultadoGasto of resultadoGastos) {
+                const elem = document.createElement("tr");
+                elem.innerHTML = `<th class="btn-main-tougle h5 billeteraNueva saldo">$${resultadoGasto}</th>`
+                containerBilleteras.append(elem)
+            }}
+    }
+    verificarStorageSaldo()
 const printBilletera = () => {
     elem = document.createElement("tr");
     for (const billetera of billeteras) {
         const {nombre, cantidad} = billetera
-        elem.innerHTML = `<th class="btn-main-tougle h5 billeteraNueva">${nombre}</th> <th class="btn-main-tougle h5 billeteraNueva saldo">$${cantidad}</th>`
-        containerBilleteras.append(elem)
-
+        elem.innerHTML = `<th class="btn-main-tougle h5 billeteraNueva">${nombre}</th>`
+        containerBilleteras.append(elem)}
     }
-}
 const verificarStorage = () => {
     if (!!datoStorage && datoStorage.length > 0) {
         for (const billetera of billeteras) {
             const { nombre, cantidad} = billetera
             const elem = document.createElement("tr");
-            elem.innerHTML = `<th class="btn-main-tougle h5 billeteraNueva">${nombre}</th> <th class="btn-main-tougle h5 billeteraNueva saldo">$${cantidad}</th>`
+            elem.innerHTML = `<th class="btn-main-tougle h5 billeteraNueva">${nombre}</th>`
             containerBilleteras.append(elem)
         }
     }
@@ -73,6 +85,7 @@ btnConfirmarModalBilletera.addEventListener("click", (e) => {
     crearBilletera()
     cancelarModal()
     printBilletera()
+    printSaldo()
 })
 // Boton para modal de agregar BILLETERA
 btnCrearBilletera.addEventListener("click", (e) => {
