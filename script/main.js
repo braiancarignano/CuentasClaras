@@ -15,7 +15,6 @@ const mostrarModalAgregarBilletera = document.querySelector("#mostrarModalAgrega
 const nombreBilletera = document.querySelector("#nombreBilletera");
 const cantidadBilletera = document.querySelector("#cantidadBilletera");
 const containerBilleteras = document.querySelector("#containerBilleteras");
-
 class NuevoBilletera {
     constructor(nombre, cantidad) {
         this.nombre = nombre,
@@ -30,49 +29,45 @@ class NuevoRegistro {
             this.fecha = fecha
     }
 }
-
-const printSaldo = () => {
-    elem = document.createElement("tr");
-    for (const resultadoGasto of resultadoGastos) {
-        elem.innerHTML = `<th class="btn-main-tougle h5 billeteraNueva saldo">$${resultadoGasto}</th>`
-        containerBilleteras.append(elem)
-    }}
-    const verificarStorageSaldo = () => {
-        if (!!datoStorage && datoStorage.length > 0) {
-            for (const resultadoGasto of resultadoGastos) {
-                const elem = document.createElement("tr");
-                elem.innerHTML = `<th class="btn-main-tougle h5 billeteraNueva saldo">$${resultadoGasto}</th>`
-                containerBilleteras.append(elem)
-            }}
-    }
-    verificarStorageSaldo()
 const printBilletera = () => {
     elem = document.createElement("tr");
     for (const billetera of billeteras) {
         const {nombre, cantidad} = billetera
-        elem.innerHTML = `<th class="btn-main-tougle h5 billeteraNueva">${nombre}</th>`
+        elem.innerHTML = `<th class="btn-main-tougle h5 billeteraNueva">${nombre}</th> <th class="btn-main-tougle h5 billeteraNueva">$${cantidad}</th>`
         containerBilleteras.append(elem)}
     }
 const verificarStorage = () => {
     if (!!datoStorage && datoStorage.length > 0) {
+        const elem = document.createElement("tr");
         for (const billetera of billeteras) {
             const { nombre, cantidad} = billetera
-            const elem = document.createElement("tr");
-            elem.innerHTML = `<th class="btn-main-tougle h5 billeteraNueva">${nombre}</th>`
+            elem.innerHTML = `<th class="btn-main-tougle h5 billeteraNueva">${nombre}</th> <th class="btn-main-tougle h5 billeteraNueva">$${cantidad}</th>`
             containerBilleteras.append(elem)
         }
     }
 }
-
 verificarStorage()
 const crearBilletera = () => {
-    let newBilletera = new NuevoBilletera(nombreBilletera.value, cantidadBilletera.value);
+    const cantidadBilleteraNumber = Number(cantidadBilletera.value);
+    let newBilletera = new NuevoBilletera(nombreBilletera.value, cantidadBilleteraNumber);
     billeteras.push(newBilletera)
     localStorage.setItem("billeteras", JSON.stringify(billeteras));
     console.log("paso billetera")
 }
+// alerta de error con libreria para billetera
+const error = () => {
+    Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ya ingresaste una billetera.',
+    })
+}
 const agregarBilletera = () => {
-    modalNuevaBilletera.classList.remove('desactive')
+    if(billeteras.length === 0){
+    modalNuevaBilletera.classList.remove('desactive')}
+    else{
+        error()
+    }
 }
 // Boton para CANCELAR modal BILLETERA
 btnCancelarModalBilletera.addEventListener("click", (e) => {
@@ -85,7 +80,6 @@ btnConfirmarModalBilletera.addEventListener("click", (e) => {
     crearBilletera()
     cancelarModal()
     printBilletera()
-    printSaldo()
 })
 // Boton para modal de agregar BILLETERA
 btnCrearBilletera.addEventListener("click", (e) => {

@@ -1,5 +1,4 @@
 const gastos = datoStorage = JSON.parse(localStorage.getItem("gastos")) ?? [];
-const resultadoGasto = datoStorage = JSON.parse(localStorage.getItem("resultadoGasto")) ?? [];
 const tablaGastos = document.querySelector("#tablaGastos");
 const billeterasGastos = document.querySelector("#billeterasGastos");
 const cantidadGastos = document.querySelector("#cantidadGastos");
@@ -10,29 +9,34 @@ const btnConfirmarModalGasto = document.querySelector("#btnConfirmarModalGasto")
 const modalGastos = document.querySelector(".modalGastos");
 const btnMostrarGasto = document.querySelector("#btnMostrarGasto");
 let elem;
-let resultado
+let resultado;
+let saldo;
 
-// restando el valor del gasto a la billetera para despues mostrar el nuevo saldo de la billetera a la vez que se crea el gasto
-// ------------------  NO FUNCIONA BIEN ----------------------------
 const crearRegistroGasto = () => {
-    let newGastos = new NuevoRegistro(billeterasGastos.value, cantidadGastos.value, categoriaGastos.value, fechaGastos.value);
+    const cantidadGastosNumber = Number(cantidadGastos.value);
+    let newGastos = new NuevoRegistro(billeterasGastos.value, cantidadGastosNumber, categoriaGastos.value, fechaGastos.value);
     gastos.push(newGastos)
     localStorage.setItem("gastos", JSON.stringify(gastos));
-    billeteras.forEach(billetera =>{       
-        resultado = billetera.cantidad - cantidadGastos.value;
-        resto = resultado
-        if (resultado < billetera.cantidad){
-            let resultado2 = resultado - cantidadGastos.value;
-            console.log(resultado2)
-            console.log("pasooo")
-        }
-        console.log(resultado)
-        // resultadoGasto.push(resultado2)
-        localStorage.setItem("resultadoGasto", JSON.stringify(resultadoGasto));
-    });
-    console.log("paso Gastos")
 }
+const restarGasto = () =>{
+    saldo = gastos[gastos.length -1].cantidad
+    let nombre = billeteras[billeteras.length -1].nombre
+    resultado = billeteras[billeteras.length -1].cantidad - saldo;
+    console.log(nombre)
+    console.log(resultado)
+    let newBilletera = new NuevoBilletera(nombre, resultado);
+    billeteras.push(newBilletera)
+    localStorage.setItem("billeteras", JSON.stringify(billeteras));
 
+}
+const printSaldo = () => {
+    containerBilleteras.innerHTML= "";
+    elem = document.createElement("tr");
+    for (const billetera of billeteras) {
+        const {nombre, cantidad} = billetera
+        elem.innerHTML = `<th class="btn-main-tougle h5 billeteraNueva">${nombre}</th> <th class="btn-main-tougle h5 billeteraNueva">$${cantidad}</th>`
+        containerBilleteras.append(elem)
+    }}  
 const renderGasto = () => {
     elem = document.createElement("tr");
     for (const gasto of gastos) {
@@ -71,7 +75,6 @@ const agregarBilleteraModal = () => {
         billeterasGastos.innerHTML += `<option value="${nombre}">${nombre}</option>`
     }
 }
-agregarBilleteraModal()
 // Boton para CANCELAR modal GASTO
 btnCancelarModalGasto.addEventListener("click", (e) => {
     e.preventDefault()
@@ -83,11 +86,14 @@ btnConfirmarModalGasto.addEventListener("click", (e) => {
     crearRegistroGasto()
     cancelarModal()
     renderGasto()
+    restarGasto()
+    printSaldo()
 })
 // Boton para modal de agregar GASTO
 btnMostrarGasto.addEventListener("click", (e) => {
     e.preventDefault()
     agregarGasto()
+    agregarBilleteraModal()
 })
 
 
