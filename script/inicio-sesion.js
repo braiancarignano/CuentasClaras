@@ -27,7 +27,7 @@ class NuevoUsuario {
             this.contraseña = contraseña
     }
 }
-// Se crea el usuario y se pushea al Storage
+// Se crea el usuario y se pushea al localStorage
 const crearUsuario = () => {
     let newUsuario = new NuevoUsuario(registroNombre.value, registroApellido.value, registroEmail.value, registroContraseña.value);
     usuarios.push(newUsuario)
@@ -62,6 +62,7 @@ btnRegistrateInicio.addEventListener("click", (e) => {
     formularioIngreso.classList.add('desactive')
     formularioRegistro.classList.remove('desactive')
 })
+//Botones para cambiar contenedor (Inicio Sesion - Registro)
 btnIngresarRegistro.addEventListener("click", (e) => {
     e.preventDefault()
     formularioIngreso.classList.remove('desactive')

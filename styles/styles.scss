@@ -1,7 +1,3 @@
-/* Colores a usar: https://colorhunt.co/palette/f6f4e6fddb3a52575d41444b */
-// https://www.google.com/search?q=dashboard+templates+css&sxsrf=ALiCzsa6USjtl_La-B0fw1dFK8yMwB6Uew:1657330269031&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjY5Nev1Or4AhVMqZUCHTttDQIQ_AUoAXoECAEQAw&biw=1360&bih=657&dpr=1#imgrc=WCDAUDkICl6qJM
-// https://ar.pinterest.com/pin/1829656090541104/
-// https://colorhunt.co/palette/f0ebe3e4dccf7d9d9c576f72
 $negro: #000000;
 $blanco: #ffffff;
 $gris: #d9d9d9;
@@ -9,6 +5,9 @@ $color-primario: #7D9D9C;
 $color-secundario: #576F72;
 $color-terceario: #89b9b7;
 $gris-traslucido: rgba(180, 180, 180, 0.801);
+$gris-cotizacion : #E4E8D1;
+$gris-oscuro-cotizacion : #5d5d5d;
+$verde-cotizacion: #85bb65;
 
 .bodyIndex {
     background-image: url("https://images.pexels.com/videos/5466776/accounting-money-tax-taxes-5466776.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500;")
@@ -397,14 +396,14 @@ $gris-traslucido: rgba(180, 180, 180, 0.801);
         .cotizacion{
             width: 200px;
             height: 160px;
-            background-color: #E4E8D1;
+            background-color: $gris-cotizacion;
             display: flex;
             flex-direction: column;
             align-items: center;
             margin: 50px 20px;
             border-radius: 10px;
             .titleNombre{
-                background-color: #85bb65;
+                background-color: $verde-cotizacion;
                 color: $blanco;
                 width: 100%;
                 text-align: center;
@@ -413,7 +412,7 @@ $gris-traslucido: rgba(180, 180, 180, 0.801);
                 border-radius: 5px 5px 0 0;
             }
             .precioCotizacion{
-                color: #5d5d5d;
+                color: $gris-oscuro-cotizacion;
                 width: 100px;
                 height: 50px;
                 text-align: center;
